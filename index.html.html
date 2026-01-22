@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shantanu Yadav - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 20px 0;
+            transition: all 0.3s;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav h1 {
+            color: #00d4ff;
+            font-size: 1.5rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #00d4ff;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://via.placeholder.com/1920x1080/1a1a2e/00d4ff?text=Tech+Background') no-repeat center/cover;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #00d4ff;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeIn 2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .floating-icons {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            animation: float 3s ease-in-out infinite;
+        }
+        .floating-icons i {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin: 10px;
+            opacity: 0.7;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        section {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #00d4ff;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .skill-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .cert-item {
+            flex: 1 1 200px;
+            text-align: center;
+        }
+        .contact {
+            text-align: center;
+        }
+        .contact a {
+            color: #00d4ff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .contact a:hover {
+            color: #00ff88;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(15, 15, 35, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <h1>Shantanu Yadav</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="floating-icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="hero-content">
+            <img src="https://via.placeholder.com/150x150/00d4ff/ffffff?text=Your+Photo" alt="Shantanu Yadav">
+            <h1>Shantanu Yadav</h1>
+            <p>Computer Engineering student specializing in data analytics and AI-driven applications, with hands-on experience in building resume screening and career recommendation systems. Seeking an entry-level Analyst role at Deloitte to apply technical skills in solving real-world business problems.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About & Skills</h2>
+            <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-item">
+                    <i class="fas fa-code fa-2x"></i>
+                    <h3>Programming</h3>
+                    <p>Python, Java</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-globe fa-2x"></i>
+                    <h3>Web Technologies</h3>
+                    <p>HTML5, CSS3, Bootstrap, React.js</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database fa-2x"></i>
+                    <h3>Database</h3>
+                    <p>SQL</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <h3>Analytics & BI</h3>
+                    <p>Power BI, Excel</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-palette fa-2x"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Figma</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-tools fa-2x"></i>
+                    <h3>Tools</h3>
+                    <p>Git, GitHub, Oracle APEX</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Education</h2>
+            <div class="card" data-aos="slide-up">
+                <h3>Gyan Ganga Institute of Technology and Science</h3>
+                <p>Bachelors of Engineering in Computer Engineering | Dec 2022 - June 2026 | CGPA: 7.0/10</p>
+            </div>
+            <div class="card" data-aos="slide-up" data-aos-delay="100">
+                <h3>M.G.M Higher Secondary School</h3>
+                <p>Class XII (Senior Secondary) – 74%</p>
+            </div>
+            <div class="card" data-aos="slide-up" data-aos-delay="200">
+                <h3>British Fort Foundation School</h3>
+                <p>Class X (Secondary) – 79%</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Projects & Practical Experience</h2>
+            <div class="projects-grid">
+                <div class="card" data-aos="zoom-in">
+                    <h3>CareerCompass | AI-Based Career Recommendation System</h3>
+                    <p>Oct 2025 – Nov 2025</p>
+                    <ul>
+                        <li>Designed and developed an AI-driven career recommendation system using academic performance, skills, and interest mapping.</li>
+                        <li>Implemented personalized, rule-based recommendation logic aligned with real-world industry roles and career pathways.</li>
+                        <li>Built interactive dashboards using Python and data visualization techniques to present career readiness insights and analytics.</li>
+                    </ul>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>JobFit AI | Resume Analyzer & Job Matching Platform</h3>
+                    <p>Feb 2025 – Mar 2025</p>
+                    <ul>
+                        <li>Developed an AI-powered resume analysis and job matching platform using ATS-style keyword extraction and scoring techniques.</li>
+                        <li>Implemented skill gap analysis and automated job recommendations based on resume content and job requirements.</li>
+                        <li>Designed end-to-end job-seeker and recruiter workflows for resume submission, job posting, and candidate shortlisting.</li>
+                    </ul>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>Power BI Dashboard | Business Intelligence Project</h3>
+                    <ul>
+                        <li>Developed interactive Power BI dashboards using SQL and Excel to analyse and visualize business data.</li>
+                        <li>Implemented ETL workflows, KPI tracking, and data transformation for actionable business insights.</li>
+                        <li>Designed dashboards focused on performance monitoring, trend analysis, and decision-support reporting.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Certifications</h2>
+            <div class="certifications" data-aos="fade-up" data-aos-delay="200">
+                <div class="cert-item">
+                    <i class="fas fa-certificate fa-2x"></i>
+                    <p>Deloitte Cybersecurity Virtual Experience Program</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate fa-2x"></i>
+                    <p>IBM Data Analyst Professional Certificate</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate fa-2x"></i>
+                    <p>Cisco Certified in Python</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate fa-2x"></i>
+                    <p>Cisco Cybersecurity Certification</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate fa-2x"></i>
+                    <p>Cisco Certified Network Associate (CCNA)</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate fa-2x"></i>
+                    <p>Oracle APEX Low-Code Development Training</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Email: <a href="mailto:shantanuy80@gmail.com">shantanuy80@gmail.com</a></p>
+            <p data-aos="fade-up" data-aos-delay="300">Phone: +91-7566276366</p>
+            <p data-aos="fade-up" data-aos-delay="400">LinkedIn: <a href="https://linkedin.com/in/shantanu-yadav-9b82b42a3" target="_blank">linkedin.com/in/shantanu-yadav-9b82b42a3</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Shantanu Yadav. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
